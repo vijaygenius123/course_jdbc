@@ -1,11 +1,24 @@
 package com.vijaygenius123.learning.course_jdbc.dao;
 
 import com.vijaygenius123.learning.course_jdbc.models.Course;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
-public class CourseJdbcDao implements DAO<Course {
+
+@Component
+public class CourseJdbcDao implements DAO<Course> {
+
+    private static final Logger log = LoggerFactory.getLogger(CourseJdbcDao.class);
+    private JdbcTemplate jdbcTemplate;
+
+    public CourseJdbcDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
 
     @Override
