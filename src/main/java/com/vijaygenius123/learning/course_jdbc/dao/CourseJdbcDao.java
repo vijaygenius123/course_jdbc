@@ -23,7 +23,15 @@ public class CourseJdbcDao implements DAO<Course> {
 
     @Override
     public List<Course> list() {
-        return null;
+        String sql = "SELECT course_id, title, description, link from course";
+        return jdbcTemplate.query(sql, (rs, rowNum) -> {
+            Course course = new Course();
+            course.setCourseId(rs.getInt("course_id"));
+            course.setTitle(rs.getString("title"));
+            course.setDescription(rs.getString("description"));
+            course.setLink(rs.getString("link"));
+            return course;
+        });
     }
 
     @Override
