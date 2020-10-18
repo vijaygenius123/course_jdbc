@@ -39,7 +39,11 @@ public class CourseJdbcDao implements DAO<Course> {
 
     @Override
     public void create(Course course) {
-
+        String sql = "INSERT into course (title, description, link) VALUES (?, ?, ?)";
+        int insert = jdbcTemplate.update(sql, course.getTitle(), course.getDescription(), course.getLink());
+        if(insert == 1){
+            log.info("New course created : " + course.getTitle());
+        }
     }
 
     @Override

@@ -20,6 +20,12 @@ public class CourseJdbcApplication {
         SpringApplication.run(CourseJdbcApplication.class, args);
 
 
+        System.out.println("Create Course");
+
+        Course vue = new Course("Vue", "This Is A Vue Course", "");
+        dao.create(vue);
+
+
         System.out.println("All Courses");
 
         List<Course> courses = dao.list();

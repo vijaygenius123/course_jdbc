@@ -19,6 +19,12 @@ public class Course {
         this.link = link;
     }
 
+    public Course(String title, String description, String link) {
+        this.title = title;
+        this.description = description;
+        this.link = link;
+    }
+
     public int getCourseId() {
         return courseId;
     }
