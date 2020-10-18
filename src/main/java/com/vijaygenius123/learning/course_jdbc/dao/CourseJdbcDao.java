@@ -24,7 +24,7 @@ public class CourseJdbcDao implements DAO<Course> {
         course.setDescription(rs.getString("description"));
         course.setLink(rs.getString("link"));
         return course;
-    }
+    };
 
     public CourseJdbcDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
